@@ -1,7 +1,9 @@
 // Imports
+const eleventyPluginSharpImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
 const pluginEleventyNavigation = require("@11ty/eleventy-navigation");
 const pluginMinifier = require("@sherby/eleventy-plugin-files-minifier");
 const pluginSitemap = require("@quasibit/eleventy-plugin-sitemap");
+
 
 // Configs
 const configCss = require("./src/config/css");
@@ -56,6 +58,11 @@ module.exports = function (eleventyConfig) {
      *  https://www.npmjs.com/package/@quasibit/eleventy-plugin-sitemap
      */
     eleventyConfig.addPlugin(pluginSitemap, configSitemap);
+
+    eleventyConfig.addPlugin(eleventyPluginSharpImages, {
+        urlPath: "/assets/images",
+        outputDir: "public/assets/images",
+    });
 
     /**
      *  MINIFIER 
